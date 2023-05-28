@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
     
     username: {
          type: String, 
@@ -12,10 +12,8 @@ const userSchema = new mongoose.Schema({
         type: String, 
         Unique: true,
         required: true,
-        validate: {
-            validator: () => Promise.resolve(false),
-            message: 'Email validation failed'
-          }
+        match: /.+\@.+\..+/
+        
         },
         thoughs : [
             {
@@ -30,7 +28,7 @@ const userSchema = new mongoose.Schema({
         },
     ],
         
-    },
+},
     {
         toJSON: {
             virtuals: true,
@@ -39,23 +37,6 @@ const userSchema = new mongoose.Schema({
     }
 
 );
-
-
-// const user = new User();
-// user.email = 'test@test.co';
-// user.name = 'test';
-
-// let error;
-// try {
-//   await user.validate();
-// } catch (err) {
-//   error = err;
-// }
-// assert.ok(error);
-// assert.equal(error.errors['name'].message, 'Oops!');
-// assert.equal(error.errors['email'].message, 'Email validation failed');
-
-
 
 userSchema
   .virtual('friendCount')
