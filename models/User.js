@@ -4,28 +4,28 @@ const userSchema = new Schema({
     
     username: {
          type: String, 
-         Unique: true,
-         Required: true , 
-         Trimmed: true 
+         unique: true,
+         required: true , 
+         trimmed: true 
         },
     email : {
         type: String, 
-        Unique: true,
+        unique: true,
         required: true,
         match: /.+\@.+\..+/
         
         },
-        thoughs : [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Thought',
-            }
-        ],
-        friends :[
-            {
+    thoughts : [
+        {
             type: Schema.Types.ObjectId,
-            ref: 'User',
-        },
+            ref: 'Thought',
+        }
+    ],
+    friends :[
+        {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+    },
     ],
         
 },
@@ -42,7 +42,7 @@ userSchema
   .virtual('friendCount')
   // Getter
   .get(function () {
-    return this.user.length;
+    return this.friends.length;
   });
 
 
