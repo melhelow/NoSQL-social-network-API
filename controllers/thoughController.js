@@ -28,4 +28,31 @@ module.exports = {
           res.status(500).json(err);
         }
       },
+      async updateThoughtById(req, res) {
+        try {
+          const thought = await Thought.findByIdAndUpdate(
+            req.params.id,
+            req.body
+          );
+          res.json(thought);
+        } catch (err) {
+          res.status(500).json(err);
+        }
+      },
+
+      async deleteThought(req, res) {
+        try {
+          const thought = await Thought.findByIdAndUpdate(
+            req.params.thoughtId,
+            {
+              $pull: {
+                thought: req.params.thoughtId
+              }
+            }
+          );
+          res.json(thought);
+        } catch (err) {
+          res.status(500).json(err);
+        }
+      }
 }
