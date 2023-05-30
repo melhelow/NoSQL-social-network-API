@@ -3,19 +3,24 @@ const db = require("../config/connection")
 const { User } = require ('../models');
 const usersData = require("./users.json")
 
+
 const seedUsers = async () => {
     try {
         db.once('open', async () => {
             await User.deleteMany({})
             await User.insertMany(usersData)
-            console.log("Seeding Users done!")
+          
+            console.log("Seeding done!")
           });
       } catch (err) {
         console.log(err)
       }
 }
 
+
+
 seedUsers();
+
 
 
 

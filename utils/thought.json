@@ -1,0 +1,10 @@
+[
+    {
+        "thoughtText": "this is the first thought",
+        "username": "john"
+    },
+    {
+        "thoughtText": "this is the second thought",
+        "username": "peter"
+    }
+]
