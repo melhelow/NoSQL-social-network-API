@@ -1,8 +1,8 @@
 // const { default: mongoose } = require('mongoose');
 const db = require("../config/connection")
-const { User } = require ('../models');
+const { User ,Thought} = require ('../models');
 const usersData = require("./users.json")
-
+const thoughtsData = require("./thought.json")
 
 const seedUsers = async () => {
     try {
@@ -17,10 +17,21 @@ const seedUsers = async () => {
       }
 }
 
-
+const seedThoughts = async () => {
+  try {
+      db.once('open', async () => {
+          await Thought.deleteMany({})
+          await Thought.insertMany(thoughtsData)
+        
+          console.log("Seeding done!")
+        });
+    } catch (err) {
+      console.log(err)
+    }
+}
 
 seedUsers();
-
+seedThoughts();
 
 
 
