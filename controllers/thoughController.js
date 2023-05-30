@@ -39,20 +39,14 @@ module.exports = {
           res.status(500).json(err);
         }
       },
-
-      async deleteThought(req, res) {
-        try {
-          const thought = await Thought.findByIdAndUpdate(
-            req.params.thoughtId,
-            {
-              $pull: {
-                thought: req.params.thoughtId
-              }
-            }
-          );
+      async deleteThought(req,res) {
+        try{
+          const thought =await Thought.findByIdAndDelete({_id: req.params.id});
           res.json(thought);
-        } catch (err) {
+        } catch(err) {
           res.status(500).json(err);
         }
       }
-}
+
+
+};
