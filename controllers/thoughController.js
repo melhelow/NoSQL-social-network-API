@@ -46,6 +46,37 @@ module.exports = {
         } catch(err) {
           res.status(500).json(err);
         }
+      },
+
+      async addReaction(req, res) {
+        try {
+          const reaction = await Thought.findByIdAndUpdate(
+            req.params.reactionId,
+            {
+              $push: {
+                reactions: req.params.reactionId
+              }
+            }
+          );
+          res.json(reaction);
+        } catch (err) {
+          res.status(500).json(err);
+        }
+      },
+      async deleteReaction(req, res) {
+        try {
+          const reaction = await Thought.findByIdAndUpdate(
+            req.params.reactionId,
+            {
+              $pull: {
+                reactions: req.params.reactionId
+              }
+            }
+          );
+          res.json(reaction);
+        } catch (err) {
+          res.status(500).json(err);
+        }
       }
 
 

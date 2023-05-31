@@ -22,8 +22,35 @@ const thoughtSchema = new Schema ({
     toJSON: {
       getters: true,
     },
+    
 
-  }
+  },
+  {
+    reactionId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
+    },
+    reactionBody: {
+        type: String,
+        required: true,
+        maxlength: 280,
+    },
+    username: {
+        type: String,
+        required: true,
+    },
+        createdAt :{
+    type: Date,
+    default: Date.now,  
+    },
+},
+{
+  toJSON: {
+    getters: true,
+  },
+  
+},
+
 );
 
 thoughtSchema
@@ -34,4 +61,5 @@ thoughtSchema
   });
 
   const Thought = model('thought', thoughtSchema);
-module.exports = Thought;
+
+  module.exports = Thought;
