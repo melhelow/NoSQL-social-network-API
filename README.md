@@ -13,12 +13,12 @@ in this 18th assignment  i started my own code
 ## usage
 the application is only a backend made from Mongo and mongoose,it has been pushed to github repostiry.
 
-![Getting Started](./1.png)
-![Getting Started](./2.png)
-![Getting Started](./3.png)
-![Getting Started](./4.png)
-![Getting Started](./5.png)
-![Getting Started](./6.png)
+![Getting Started](./assets/1.png)
+![Getting Started](./assets/2.png)
+![Getting Started](./assets/3.png)
+![Getting Started](./assets/4.png)
+![Getting Started](./assets/5.png)
+![Getting Started](./assets/6.png)
 
 
 
