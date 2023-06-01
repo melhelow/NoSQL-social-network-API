@@ -65,13 +65,13 @@ module.exports = {
           res.status(500).json(err);
         }
       },
-      async deleteReaction(req, res) {
+      async getReaction(req, res) {
         try {
           const reaction = await Thought.findByIdAndUpdate(
-            req.params.reactionId,
+            req.params.thoughtId,
             {
-              $pull: {
-                reactions: req.params.reactionId
+              $push: {
+                reactions: req.body
               }
             }
           );
