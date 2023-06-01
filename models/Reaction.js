@@ -28,6 +28,5 @@ const reactionSchema = new Schema(
     },
 );
 
-// const Reaction = model('reaction',reactionSchema);
 
 module.exports = reactionSchema;
