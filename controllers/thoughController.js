@@ -50,11 +50,14 @@ module.exports = {
 
       async addReaction(req, res) {
         try {
+
+          // console.log({param: req.params.thoughtId, body: req.body})
+          // res.send('ok')
           const reaction = await Thought.findByIdAndUpdate(
-            req.params.reactionId,
+            req.params.thoughtId,
             {
               $push: {
-                reactions: req.params.reactionId
+                reactions: req.body
               }
             }
           );
