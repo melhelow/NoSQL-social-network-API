@@ -75,7 +75,7 @@ module.exports = {
               }
             }
           );
-          res.json(reaction);
+          res.json(reaction.reactions);
         } catch (err) {
           res.status(500).json(err);
         }
